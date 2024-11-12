@@ -212,6 +212,9 @@ Cosine similarity adalah metode pengukuran kesamaan antara dua vektor dalam ruan
 ​
 
 $$cosine(A,B) = \frac{A.B}{|A||B|}$$
+
+
+![{2534709A-7324-44B5-AC85-A9DF9D0CEDF7}](https://github.com/user-attachments/assets/d1f88ec3-3330-4217-86ba-f22040fd68e3)
  
 **Kelebihan:**
 - Sederhana dan Efisien: Mudah dihitung dan sangat efisien secara komputasi, terutama untuk vektor berdimensi tinggi yang tipikal dalam data teks dan rekomendasi.
@@ -223,16 +226,103 @@ $$cosine(A,B) = \frac{A.B}{|A||B|}$$
 - Tidak Cocok untuk Data Negatif: Untuk kasus yang memiliki data negatif (misalnya preferensi negatif atau sentimen negatif), cosine similarity mungkin tidak menghasilkan hasil yang akurat.
 - Tidak Berbasis Non-Linear: Sebagai pengukuran linear, cosine similarity tidak menangkap pola kesamaan non-linear antara data, yang bisa mengurangi akurasi rekomendasi.
 
+### Top-N Recomendation Content-Based Filltering
+![{A72DF3AA-FD37-4CBC-90C6-394A031417AD}](https://github.com/user-attachments/assets/4d000746-55d1-4141-a82f-87d7649a82bc)
+
+### Collaborative Filtering
+Collaborative filtering adalah metode sistem rekomendasi yang didasarkan pada data preferensi pengguna lainnya. Algoritma ini bekerja dengan asumsi bahwa jika sekelompok pengguna memiliki minat yang serupa, maka mereka cenderung menyukai item yang serupa juga. Collaborative filtering menggunakan data interaksi antar pengguna dan item untuk menemukan pola kesukaan. Terdapat dua jenis pendekatan utama:
+
+**Kelebihan:**
+- Rekomendasi yang Lebih Bervariasi: Dapat menemukan preferensi item yang berbeda dari item-item yang sudah pernah dilihat atau disukai pengguna, memungkinkan penemuan konten baru.
+- Tidak Memerlukan Data Atribut: Tidak membutuhkan informasi tentang fitur item; cukup dengan data interaksi antar pengguna dan item.
+- Menangani Preferensi Implisit: Bisa menggunakan data seperti rating, pembelian, atau waktu menonton sebagai preferensi, tanpa memerlukan pengaturan eksplisit dari pengguna.
+
+**Kekurangan:**
+- Masalah Cold Start: Memerlukan data interaksi awal dari pengguna atau item. Pengguna baru atau item baru akan sulit direkomendasikan karena kurangnya data.
+- Data Sparsity: Dalam sistem besar, banyak pengguna dan item yang memiliki sedikit atau bahkan tidak ada data interaksi, membuat pola rekomendasi sulit ditemukan.
+- Skalabilitas: Memerlukan komputasi yang cukup intensif terutama jika terdapat jutaan pengguna atau item, sehingga membutuhkan pengelolaan data dan pemrosesan yang efisien.
+
+### RecommenderNet
+RecommenderNet adalah pendekatan sistem rekomendasi berbasis neural network (jaringan saraf) yang dapat dikustomisasi sesuai dengan data dan kebutuhan sistem rekomendasi tertentu. Algoritma ini menggunakan jaringan saraf untuk menemukan pola preferensi dalam data pengguna dan item. Dengan memanfaatkan model deep learning, seperti embedding untuk pengguna dan item, RecommenderNet dapat menangkap pola kompleks yang ada dalam data.
+
+Biasanya, model RecommenderNet diimplementasikan dengan lapisan embedding untuk mewakili pengguna dan item, yang dilatih menggunakan data interaksi (misalnya rating atau klik). Model ini akan memprediksi skor relevansi antara pengguna dan item yang kemudian dapat digunakan untuk rekomendasi. Karena menggunakan deep learning, RecommenderNet dapat dioptimalkan dengan teknik backpropagation untuk meningkatkan akurasi rekomendasi.
+
+![{92288106-5E22-42C6-A95B-1F3B5DFA259C}](https://github.com/user-attachments/assets/067d90a4-d3d0-43c7-90fd-bb63db79a85b)
+
+**Kelebihan:**
+- Dapat Menangkap Pola Non-Linear: Berbeda dengan pendekatan konvensional seperti collaborative filtering, RecommenderNet mampu menangkap pola kompleks dalam data, sehingga menghasilkan rekomendasi yang lebih akurat.
+- Kustomisasi Tinggi: RecommenderNet dapat disesuaikan dengan berbagai jenis data dan tipe interaksi, serta memungkinkan integrasi atribut tambahan dari pengguna atau item.
+- Mengatasi Masalah Cold Start Lebih Baik: Dengan menggunakan fitur tambahan dari pengguna dan item (seperti embedding yang dikustomisasi), RecommenderNet dapat memberikan rekomendasi bahkan untuk pengguna atau item baru, dengan hasil yang lebih baik daripada collaborative filtering klasik.
+
+**Kekurangan:**
+- Kebutuhan Data Latihan Besar: RecommenderNet bekerja dengan baik pada data berukuran besar, sehingga sulit diimplementasikan pada sistem dengan data terbatas.
+- Komputasi Intensif: Karena menggunakan deep learning, model ini memerlukan sumber daya komputasi yang tinggi baik dalam hal waktu maupun kebutuhan memori untuk pelatihan model.
+- Tuning Model yang Kompleks: Memerlukan keterampilan dan waktu untuk mengatur serta men-tune hyperparameter, arsitektur model, dan proses pelatihan agar mendapatkan hasil optimal.
+
+## Top-N Recomendation Colaborative Filltering
+```
+Menampilkan rekomendasi untuk pengguna: 5904
+=============================================
+Film dengan rating tertinggi dari pengguna
+---------------------------------------------
+Silence of the Lambs, The (1991)  :  Crime|Horror|Thriller
+Cool Hand Luke (1967)  :  Drama
+Young Frankenstein (1974)  :  Comedy|Fantasy
+Indiana Jones and the Last Crusade (1989)  :  Action|Adventure
+For a Few Dollars More (Per qualche dollaro in più) (1965)  :  Action|Drama|Thriller|Western
+---------------------------------------------
+Rekomendasi 10 film teratas
+---------------------------------------------
+Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb (1964) : Comedy|War
+Twelfth Night (1996) : Comedy|Drama|Romance
+It Happened One Night (1934) : Comedy|Romance
+Cinema Paradiso (Nuovo cinema Paradiso) (1989) : Drama
+Wings of Desire (Himmel über Berlin, Der) (1987) : Drama|Fantasy|Romance
+Godfather: Part II, The (1974) : Crime|Drama
+Bull Durham (1988) : Comedy|Drama|Romance
+Eraserhead (1977) : Drama|Horror
+Spy Game (2001) : Action|Crime|Drama|Thriller
+Walk the Line (2005) : Drama|Musical|Romance
+```
+
 ## Evaluation
-Pada bagian ini Anda perlu menyebutkan metrik evaluasi yang digunakan. Kemudian, jelaskan hasil proyek berdasarkan metrik evaluasi tersebut.
 
-Ingatlah, metrik evaluasi yang digunakan harus sesuai dengan konteks data, problem statement, dan solusi yang diinginkan.
+Pada project ini ada 2 matrix yang digunakan untuk mengevaluasi model yaitu Precision dan RMSE (Root Mean Squared Error) dengan penjelasan seeperti berikut
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan formula metrik dan bagaimana metrik tersebut bekerja.
+### Evaluasi Cosine Similiarity
+Model ini hanya menggunakan metrik Precision untuk mengetahui seberapa baik perforam model tersebut. Presisi adalah metrik yang biasa digunakan untuk mengevaluasi kinerja model pengelompokan. Metrik ini menghitung rasio antara nilai ground truth (nilai sebenarnya) dengan nilai prediksi yang positf. Perhitungan rasio ini dijabarkan melalui rumus di bawah ini:
 
-**---Ini adalah bagian akhir laporan---**
+$$Precision= \frac{TP}{TP+FP}$$
 
-_Catatan:_
-- _Anda dapat menambahkan gambar, kode, atau tabel ke dalam laporan jika diperlukan. Temukan caranya pada contoh dokumen markdown di situs editor [Dillinger](https://dillinger.io/), [Github Guides: Mastering markdown](https://guides.github.com/features/mastering-markdown/), atau sumber lain di internet. Semangat!_
-- Jika terdapat penjelasan yang harus menyertakan code snippet, tuliskan dengan sewajarnya. Tidak perlu menuliskan keseluruhan kode project, cukup bagian yang ingin dijelaskan saja.
+**Dimana:**
+- TP (True Positive), jumlah kejadian positif yang diprediksi dengan benar.
+- FP (False Positive), jumlah kejadian positif yang diprediksi dengan salah.
+
+Berdasarkan hasil yang terdapat pada tahap Model and Result dapat dilihat bahwasanya besar presisi jika dihitung adalah 10/10 untuk rekomendasi Top-10. Ini menunjukan sistem mampu memberikan rekomendasi sesuai dengan Genres Filmnya.
+
+### Evaluasi Model RecommenderNet
+
+Root Mean Squared Error (RMSE) adalah akar kuadrat dari rata-rata kuadrat kesalahan. Ini memberikan gambaran seberapa jauh prediksi model berbeda dari nilai sebenarnya dalam satuan yang sama dengan variabel yang diprediksi. RMSE sangat berguna karena memberikan penalti lebih besar untuk kesalahan yang lebih besar.
+
+$$
+\text{RMSE} = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2}
+$$
+
+**Di mana:**
+- $y_i$ adalah nilai sebenarnya
+- $y_i$ adalah nilai prediksi
+- $n$ adalah jumlah observasi
+- RMSE yang kecil mengindikasikan bahwa model memiliki performa yang baik karena kesalahan antara prediksi dan nilai aktual rendah.
+- RMSE yang besar mengindikasikan bahwa model memiliki performa yang buruk karena kesalahan antara prediksi dan nilai aktual tinggi.
+
+![{57606E97-35D7-41FB-90A4-2CF490083E37}](https://github.com/user-attachments/assets/8a0a4d37-0a3c-4f87-b480-7abbc6129fd6)
+
+**Hasil Proyek**
+|            | Train  | Test  |
+|------------|------- |-------|
+| RMSE       | 0.105 | 0.270|
+
+RMSE yang dihitung memberikan indikasi bahwa model prediksi rating memiliki tingkat kesalahan yang dapat diterima, sehingga memadai untuk tujuan rekomendasi.
+
+## Kesimpulan
+Dari hasil evaluasi, solusi sistem rekomendasi dengan pendekatan Content-Based Filtering dengan model Cosine Similarity dan Collaborative Filtering menggunakan model RecommenderNet menunjukkan bahwa kedua pendekatan ini berhasil mencapai tujuan proyek. Content-Based Filtering dengan model Cosine Similiarity memberikan rekomendasi film yang relevan berdasarkan kesamaan genre dengan presisi tinggi, mencapai rekomendasi Top-10 yang sesuai kategori. Sementara itu, pendekatan Collaborative Filtering dengan model RecommenderNet menghasilkan rekomendasi film berdasarkan pola rating pengguna dengan error yang rendah (RMSE sekitar 0.105 untuk data training dan 0.270 untuk data validasi), menunjukkan kemampuannya dalam memprediksi preferensi pengguna dengan akurat. Secara keseluruhan, kedua pendekatan ini berhasil memberikan rekomendasi yang relevan dan sesuai dengan tujuan utama, yaitu menyediakan rekomendasi film yang sesuai dengan preferensi genre dan pola rating pengguna.

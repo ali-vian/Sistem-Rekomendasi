@@ -49,6 +49,8 @@ Pada proyek ini dataset yang digunakan diambil dari repository terbuka GrubLens 
 
 Dataset tersebut kumpulan dari rating dan tag dari MovieLens, sebuah layanan rekomendasi film. Kumpulan data tersebut berisi 20000263 peringkat dan 465564 aplikasi penandaan pada 27278 film. Data ini dibuat oleh 138493 pengguna antara 09 Januari 1995 dan 31 Maret 2015. Kumpulan data ini dibuat pada 17 Oktober 2016. Pengguna dipilih secara acak untuk diikutsertakan. Semua pengguna yang dipilih telah menilai sedikitnya 20 film. Terdapat 5 file dalam dataset tersebut yaitu genome_scores.csv, genome_tags.csv, link.csv, movie.csv, rating.csv, tag.csv namun pada proyek ini hanya mengunakan movie.csv dan rating.csv saja untuk sistem rekomendasi.
 
+## Deskripsi Variabel
+
 Variabel-variabel yang digunakan pada MovieLens 20M Dataset  adalah sebagai berikut:
 **movie.csv**
 - movieId : id unik untuk setiap film
@@ -61,13 +63,27 @@ Variabel-variabel yang digunakan pada MovieLens 20M Dataset  adalah sebagai beri
 - rating : nilai/score yang diberikan user untuk film
 - timestamp : waktu dan tanggal user memberikan rating 
 
-**Rubrik/Kriteria Tambahan (Opsional)**:
-- Melakukan beberapa tahapan yang diperlukan untuk memahami data, contohnya teknik visualisasi data beserta insight atau exploratory data analysis.
+## Exploratory Data Analysis
+
+**Informasi Dataset**
+
+Setelah memahami deskripsi variabel pada data, langkah selanjutnya adalah mengecek informasi pada dataset dengan fungsi info() berikut.
+
+![{6578159A-38A3-4526-A2CD-0357D8A1874E}](https://github.com/user-attachments/assets/48bf254c-0d98-4192-befd-f928288468d8)
+- Jumlah Data
+  
+  | Baris | Kolom|
+  |--------------|
+  | 27278 | 3    |
+- 
+![{D80EF645-9423-462C-A0F1-4B2ADBD32016}](https://github.com/user-attachments/assets/d8f90dd9-17c8-42ef-a9b4-9e98fd6de369)
+
+
 
 ## Data Preparation
 Pada bagian ini Anda menerapkan dan menyebutkan teknik data preparation yang dilakukan. Teknik yang digunakan pada notebook dan laporan harus berurutan.
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
+**Rubrik/Kriteria Tambahan (Opsional)**
 - Menjelaskan proses data preparation yang dilakukan
 - Menjelaskan alasan mengapa diperlukan tahapan data preparation tersebut.
 

@@ -2,13 +2,29 @@
 
 ## Project Overview
 
-Pada bagian ini, Kamu perlu menuliskan latar belakang yang relevan dengan proyek yang diangkat.
+Dalam era digital saat ini, jumlah konten film yang tersedia di platform streaming dan bioskop sangat besar. Pengguna sering merasa kesulitan untuk menemukan film yang sesuai dengan selera dan preferensi mereka di tengah beragamnya pilihan yang ada [[1]](https://j-ptiik.ub.ac.id/index.php/j-ptiik/article/view/9163/4159). Di sinilah peran sistem rekomendasi film menjadi penting untuk membantu pengguna menyaring dan menemukan film yang paling relevan dan menarik bagi mereka[[2]](https://citisee.amikompurwokerto.ac.id/assets/proceedings/2017/TI08.pdf).
 
-**Rubrik/Kriteria Tambahan (Opsional)**:
-- Jelaskan mengapa proyek ini penting untuk diselesaikan.
-- Menyertakan hasil riset terkait atau referensi. Referensi yang diberikan harus berasal dari sumber yang kredibel dan author yang jelas.
+Sistem rekomendasi film dirancang untuk memberikan rekomendasi yang dipersonalisasi berdasarkan data dan preferensi pengguna. Dengan menggunakan teknik-teknik seperti Collaborative Filtering, Content-Based Filtering, dan hybrid approach, sistem ini dapat mengidentifikasi pola-pola dalam perilaku dan preferensi pengguna, sehingga mampu memberikan rekomendasi yang lebih akurat dan relevan [[3]](https://doi.org/10.1016/j.eij.2015.06.005). Collaborative Filtering, misalnya, bekerja dengan cara mengidentifikasi pengguna dengan preferensi serupa dan merekomendasikan film yang disukai oleh pengguna-pengguna serupa tersebut. Sementara itu, Content-Based Filtering memberikan rekomendasi berdasarkan karakteristik dari film yang sudah disukai pengguna, seperti genre, sutradara, atau aktor.[[4]](https://ejournal.unsrat.ac.id/v3/index.php/decartesian/article/view/28274/31235)
+
+Dengan adanya sistem rekomendasi film, pengguna dapat menikmati pengalaman menonton yang lebih efisien dan memuaskan. Sistem ini tidak hanya meningkatkan kenyamanan pengguna, tetapi juga membantu penyedia layanan streaming untuk mempertahankan pelanggan mereka dengan menyediakan konten yang sesuai dengan minat pengguna[[5]](https://www.journal.mediapublikasi.id/index.php/logic/article/view/4299/2851).
+
+**Mengapa proyek ini penting untuk diselesaikan ?**
+- Dengan memberikan rekomendasi yang sesuai dengan preferensi, pengguna tidak perlu membuang banyak waktu mencari film yang menarik bagi mereka.
+- Platform dapat mengarahkan pengguna ke konten yang jarang ditonton tetapi berkualitas, sehingga mengoptimalkan pemanfaatan seluruh koleksi film
   
-  Format Referensi: [Judul Referensi](https://scholar.google.com/) 
+**Referensi**
+
+ J. J. Khanam and S. Y. Foo, “A comparison of machine learning algorithms for diabetes prediction,” ICT Express, vol. 7, no. 4, pp. 432–439, Dec. 2021, doi: 10.1016/j.icte.2021.02.004.
+
+[[1]](https://j-ptiik.ub.ac.id/index.php/j-ptiik/article/view/9163/4159) 
+
+[[2]](https://citisee.amikompurwokerto.ac.id/assets/proceedings/2017/TI08.pdf)
+
+[[3]](https://doi.org/10.1016/j.eij.2015.06.005)
+
+[[4]](https://ejournal.unsrat.ac.id/v3/index.php/decartesian/article/view/28274/31235)
+
+[[5]](https://www.journal.mediapublikasi.id/index.php/logic/article/view/4299/2851)
 
 ## Business Understanding
 

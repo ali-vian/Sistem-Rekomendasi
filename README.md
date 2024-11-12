@@ -14,17 +14,16 @@ Dengan adanya sistem rekomendasi film, pengguna dapat menikmati pengalaman menon
   
 **Referensi**
 
- J. J. Khanam and S. Y. Foo, “A comparison of machine learning algorithms for diabetes prediction,” ICT Express, vol. 7, no. 4, pp. 432–439, Dec. 2021, doi: 10.1016/j.icte.2021.02.004.
+[[1]](https://j-ptiik.ub.ac.id/index.php/j-ptiik/article/view/9163/4159) M. Fajriansyah, P. P. Adikara, and A. W. Widodo, “Sistem Rekomendasi Film Menggunakan Content Based Filtering,” 2021. [Online]. Available: http://j-ptiik.ub.ac.id
 
-[[1]](https://j-ptiik.ub.ac.id/index.php/j-ptiik/article/view/9163/4159) 
+[[2]](https://citisee.amikompurwokerto.ac.id/assets/proceedings/2017/TI08.pdf) A. Halim, H. Gohzali, D. Maria Panjaitan, and I. Maulana, "Sistem Rekomendasi Film menggunakan Bisecting
+K-Means dan Collaborative Filtering," 2017. [Online] Availeble: https://citisee.amikompurwokerto.ac.id/assets/proceedings
 
-[[2]](https://citisee.amikompurwokerto.ac.id/assets/proceedings/2017/TI08.pdf)
+[[3]](https://doi.org/10.1016/j.eij.2015.06.005) F. O. Isinkaye, Y. O. Folajimi, and B. A. Ojokoh, “Recommendation systems: Principles, methods and evaluation,” Nov. 01, 2015, Elsevier B.V. doi: 10.1016/j.eij.2015.06.005.
 
-[[3]](https://doi.org/10.1016/j.eij.2015.06.005)
+[[4]](https://ejournal.unsrat.ac.id/v3/index.php/decartesian/article/view/28274/31235) Y. Visher Laja Jaja, B. Susanto, L. Ricky Sasongko, and K. Kunci, “Penerapan Metode Item-Based Collaborative Filtering Untuk Sistem Rekomendasi Data MovieLens,” 2020. [Online]. Available: https://ejournal.unsrat.ac.id/index.php/decartesian
 
-[[4]](https://ejournal.unsrat.ac.id/v3/index.php/decartesian/article/view/28274/31235)
-
-[[5]](https://www.journal.mediapublikasi.id/index.php/logic/article/view/4299/2851)
+[[5]](https://www.journal.mediapublikasi.id/index.php/logic/article/view/4299/2851) A. Zakharia et al., “Sistem Rekomendasi Film Indonesia Menggunakan Metode Content-Based Filtering”, [Online]. Available: https://journal.mediapublikasi.id/index.php/logic
 
 ## Business Understanding
 

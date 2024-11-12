@@ -27,41 +27,39 @@ K-Means dan Collaborative Filtering," 2017. [Online] Availeble: https://citisee.
 
 ## Business Understanding
 
-Pada bagian ini, Anda perlu menjelaskan proses klarifikasi masalah.
-
-Bagian laporan ini mencakup:
-
 ### Problem Statements
 
-Menjelaskan pernyataan masalah:
-- Pernyataan Masalah 1
-- Pernyataan Masalah 2
-- Pernyataan Masalah n
+- Bagaimana cara membangun model rekomendasi yang dapat mengidentifikasi film yang paling relevan berdasarkan genre film ?
+- Dengan menggunakan data rating, bagaimana cara merekomendasikan film yang belum pernah ditonton pengguna ?
+- Bagaimana cara membangun model sistem rekomendasi menggunakan pendekatan content-based filtering dan Collaborative Filtering ?
 
 ### Goals
 
 Menjelaskan tujuan proyek yang menjawab pernyataan masalah:
-- Jawaban pernyataan masalah 1
-- Jawaban pernyataan masalah 2
-- Jawaban pernyataan masalah n
+- Mendapatkan rekomendasi film sebanyak top-N rekomendasi kepada penguna berdasarkan genre film yang pernah di tonton
+- Mendapatkan rekomendasi filem yang sesuai berdasarkan rating dan belum perah ditonton 
+- Membangun model sistem rekomendasi menggunakan pendekatan (content-based filtering) dengan Cosine Similiarity dan (Collaborative Filtering) model based Deep learning
 
-Semua poin di atas harus diuraikan dengan jelas. Anda bebas menuliskan berapa pernyataan masalah dan juga goals yang diinginkan.
-
-**Rubrik/Kriteria Tambahan (Opsional)**:
-- Menambahkan bagian “Solution Approach” yang menguraikan cara untuk meraih goals. Bagian ini dibuat dengan ketentuan sebagai berikut: 
-
-    ### Solution statements
-    - Mengajukan 2 atau lebih solution approach (algoritma atau pendekatan sistem rekomendasi).
+### Solution statements
+- Pendekatan Content-Based Filtering menggunakan Cosine Similarity algoritma ini akan merekomendasikan film kepada pengguna berdasarkan kesamaan fitur genre. Cosine Similarity akan digunakan untuk mengukur seberapa mirip satu film dengan film lain berdasarkan representasi vektornya
+- Pendekatan Collaborative Filtering menggunakan model Deep learning ini akan memanfaatkan data rating dari pengguna lain untuk memberikan rekomendasi film. Dengan menggunakan Deep Learning, sistem akan mencari pengguna dengan pola rating yang mirip dan merekomendasikan film yang disukai oleh pengguna-pengguna tersebut.
 
 ## Data Understanding
-Paragraf awal bagian ini menjelaskan informasi mengenai jumlah data, kondisi data, dan informasi mengenai data yang digunakan. Sertakan juga sumber atau tautan untuk mengunduh dataset. Contoh: [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/Restaurant+%26+consumer+data).
+Pada proyek ini dataset yang digunakan diambil dari repository terbuka GrubLens yaitu [MovieLens 20M Dataset](https://grouplens.org/datasets/movielens/20m/)
 
-Selanjutnya, uraikanlah seluruh variabel atau fitur pada data. Sebagai contoh:  
+Dataset tersebut kumpulan dari rating dan tag dari MovieLens, sebuah layanan rekomendasi film. Kumpulan data tersebut berisi 20000263 peringkat dan 465564 aplikasi penandaan pada 27278 film. Data ini dibuat oleh 138493 pengguna antara 09 Januari 1995 dan 31 Maret 2015. Kumpulan data ini dibuat pada 17 Oktober 2016. Pengguna dipilih secara acak untuk diikutsertakan. Semua pengguna yang dipilih telah menilai sedikitnya 20 film. Terdapat 5 file dalam dataset tersebut yaitu genome_scores.csv, genome_tags.csv, link.csv, movie.csv, rating.csv, tag.csv namun pada proyek ini hanya mengunakan movie.csv dan rating.csv saja untuk sistem rekomendasi.
 
-Variabel-variabel pada Restaurant UCI dataset adalah sebagai berikut:
-- accepts : merupakan jenis pembayaran yang diterima pada restoran tertentu.
-- cuisine : merupakan jenis masakan yang disajikan pada restoran.
-- dst
+Variabel-variabel yang digunakan pada MovieLens 20M Dataset  adalah sebagai berikut:
+**movie.csv**
+- movieId : id unik untuk setiap film
+- title : judul/nama film dan terdapat tahun
+- genres : genre dari film yang dipisahkan dengan "|"
+
+**rating.csv**
+- userId : id unik dari user
+- movieId : id unik dari film yang diberi rating
+- rating : nilai/score yang diberikan user untuk film
+- timestamp : waktu dan tanggal user memberikan rating 
 
 **Rubrik/Kriteria Tambahan (Opsional)**:
 - Melakukan beberapa tahapan yang diperlukan untuk memahami data, contohnya teknik visualisasi data beserta insight atau exploratory data analysis.

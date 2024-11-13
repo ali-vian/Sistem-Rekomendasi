@@ -135,11 +135,14 @@ Tidak ada hubungan yang signifikan antara variabel-variabel ini dalam hal pola l
 ## Data Preparation
 
 **Teknik Data Preparation**
-
 - Menghapus kolom yang tidak perlu
+- Membuat matrix genre untuk encoding.
+- Mengubah genre menjadi lowercase.
 - Encoding Genres
+- Menghapus kolom genres.
 - Sampling
 - Encoding UserId
+- Mengubah rating menjadi nilai float.
 - Train-Test-Split Data user rating
 
 ### Menghapus kolom yang tidak perlu
@@ -151,6 +154,21 @@ ratings.drop('timestamp', axis=1, inplace=True)
 ```
 Alasan: Kolom yang tidak relevan atau tidak berguna hanya akan menambah kompleksitas data dan bisa menyebabkan noise yang menurunkan kualitas model.
 
+###  Membuat matrix genre untuk encoding.
+
+Membuat matriks genre berarti kita mengonversi data genre ke dalam format numerik, seperti menggunakan one-hot encoding atau multi-label binarization. Contohnya, jika ada beberapa genre seperti Action, Drama, dan Comedy, maka setiap genre akan menjadi kolom dan akan memiliki nilai 1 atau 0 yang menunjukkan ada atau tidaknya genre tersebut dalam film. Dengan format matriks ini, algoritma machine learning dapat menggunakan genre sebagai fitur tanpa kesulitan memahami data kategorikal. Hal ini juga mengurangi potensi bias karena genre dipisahkan menjadi kolom independen.
+
+Alasan: Karena genre berbentuk teks atau daftar string yang sulit diproses oleh model pembelajaran mesin secara langsung. Encoding genre menjadi matriks memungkinkan model mengenali hubungan antar-genre dan memperlakukan setiap genre secara independen.
+
+### Mengubah genre menjadi lowercase
+
+Teknik ini melibatkan perubahan semua teks genre menjadi huruf kecil. Misalnya, Action, action, dan ACTION semuanya akan diubah menjadi action. Untuk Menghindari masalah ketidakkonsistenan data, yang bisa menyebabkan genre yang sama dikenali sebagai genre yang berbeda oleh sistem jika hurufnya berbeda.
+```python
+# mengubah genre menjadi lowercase
+gen_matrix['genres'] = gen_matrix['genres'].str.lower().str.strip()
+```
+Alasan: Data biasanya tidak memiliki format yang konsisten, terutama data teks yang mungkin berasal dari berbagai sumber. Menggunakan format huruf kecil menghilangkan variasi akibat perbedaan kapitalisasi yang tidak relevan untuk pemrosesan data.
+
 ### Encoding Genres
 
 Genre film sering kali dalam bentuk teks atau string (misalnya, "Action", "Comedy", atau "Drama") atau bahkan dalam bentuk gabungan genre (misalnya, "Action|Adventure|Sci-Fi"). Encoding genre berarti mengonversi teks ini menjadi format numerik yang dapat dipahami oleh algoritma pembelajaran mesin. Salah satu cara encoding genre adalah menggunakan one-hot encoding, di mana setiap genre direpresentasikan sebagai kolom, dan film ditandai dengan "1" jika memiliki genre tersebut, atau "0" jika tidak.
@@ -159,6 +177,14 @@ Genre film sering kali dalam bentuk teks atau string (misalnya, "Action", "Comed
 
 Alasan: Algoritma machine learning hanya bekerja dengan data numerik. Encoding genre memungkinkan kita menggunakan informasi kategori ini dalam bentuk numerik yang dapat dipahami model. Selain itu, One-Hot Encoding membantu menghindari kesalahan interpretasi jarak antar kategori yang bisa terjadi dengan Label Encoding (misalnya, jika genre diberi label sebagai 1, 2, atau 3, model mungkin menyalahartikan urutan ini sebagai urutan numerik).
 Contoh: Sebuah film dengan genre "Action" dan "Comedy" akan direpresentasikan dengan kolom "Action" dan "Comedy" bernilai 1, sementara kolom genre lain seperti "Drama" dan "Horror" bernilai 0.
+
+### Menghapus kolom genres
+Setelah genre dikonversi menjadi matriks numerik, kolom asli genres yang berisi teks atau string genre tidak lagi diperlukan dan dapat dihapus untuk mengurangi kompleksitas data. Ukuran data berkurang dan redundansi informasi dihindari. Model juga tidak akan terganggu dengan fitur teks asli yang tidak terpakai dalam prediksi.
+```python
+#menghapus kolom genres 
+gen_matrix.drop('genres', axis=1, inplace=True)
+```
+Alasan: Setelah encoding, informasi dari kolom genres sudah diwakili dalam matriks numerik baru. Oleh karena itu, kolom asli tidak memberikan nilai tambah dan hanya mengakibatkan pengolahan data yang lebih berat jika tetap disimpan.
 
 ### Sampling
 Sampling adalah proses memilih sebagian kecil dari data keseluruhan untuk dianalisis atau diproses lebih lanjut. Dalam konteks machine learning atau analisis data, sampling bertujuan untuk mengurangi ukuran data sehingga lebih efisien dalam komputasi, namun tetap mewakili karakteristik populasi data.
@@ -175,6 +201,16 @@ Alasan: Menggunakan seluruh dataset bisa jadi memakan waktu dan sumber daya yang
 
   
 Alasan: Encoding userId ke dalam bentuk integer bertujuan untuk membuat data siap diolah oleh model machine learning, terutama yang hanya menerima data numerik sebagai input (misalnya, pada model embedding dalam rekomendasi atau klasifikasi). Encoding juga membantu dalam menyederhanakan data sehingga pemrosesan dapat dilakukan lebih cepat dan efisien.
+
+
+### Mengubah rating menjadi nilai float
+
+Rating yang awalnya mungkin dalam format string atau integer, dikonversi ke format float untuk meningkatkan akurasi numeriknya. Format float memungkinkan representasi nilai yang lebih detail, seperti 4.5 atau 3.7, dan mengurangi potensi kesalahan atau bias akibat pembulatan jika data rating berupa angka desimal.
+```python
+# Mengubah rating menjadi nilai float
+fix_rating['rating'] = fix_rating['rating'].values.astype(np.float32)
+```
+Alasan: Data rating sering kali perlu diproses dalam bentuk yang mendukung perhitungan presisi tinggi. Format float lebih cocok untuk data numerik yang mungkin melibatkan nilai desimal atau dihitung dengan operasi matematika dalam model.
 
 ### Train-Test-Split Data ID User Rating
 

@@ -213,7 +213,9 @@ Cosine similarity adalah metode pengukuran kesamaan antara dua vektor dalam ruan
 
 $$cosine(A,B) = \frac{A.B}{|A||B|}$$
 
-
+###Parameter yang digunakan
+- title : judul yang ingin diketahui kesamaannya
+- k = jumlah k teratas yang memiliki kesamaan
 ![{2534709A-7324-44B5-AC85-A9DF9D0CEDF7}](https://github.com/user-attachments/assets/d1f88ec3-3330-4217-86ba-f22040fd68e3)
  
 **Kelebihan:**
@@ -246,6 +248,14 @@ Collaborative filtering adalah metode sistem rekomendasi yang didasarkan pada da
 RecommenderNet adalah pendekatan sistem rekomendasi berbasis neural network (jaringan saraf) yang dapat dikustomisasi sesuai dengan data dan kebutuhan sistem rekomendasi tertentu. Algoritma ini menggunakan jaringan saraf untuk menemukan pola preferensi dalam data pengguna dan item. Dengan memanfaatkan model deep learning, seperti embedding untuk pengguna dan item, RecommenderNet dapat menangkap pola kompleks yang ada dalam data.
 
 Biasanya, model RecommenderNet diimplementasikan dengan lapisan embedding untuk mewakili pengguna dan item, yang dilatih menggunakan data interaksi (misalnya rating atau klik). Model ini akan memprediksi skor relevansi antara pengguna dan item yang kemudian dapat digunakan untuk rekomendasi. Karena menggunakan deep learning, RecommenderNet dapat dioptimalkan dengan teknik backpropagation untuk meningkatkan akurasi rekomendasi.
+
+### Parameter yang digunkan
+- loss = BinaryCrossentropy
+- optimizer = Adam
+- learning_rate = 0.001
+- metrics = RootMeanSquaredError
+- batch_size = 32
+- epochs = 100
 
 ![{92288106-5E22-42C6-A95B-1F3B5DFA259C}](https://github.com/user-attachments/assets/067d90a4-d3d0-43c7-90fd-bb63db79a85b)
 
@@ -324,5 +334,13 @@ $$
 
 RMSE yang dihitung memberikan indikasi bahwa model prediksi rating memiliki tingkat kesalahan yang dapat diterima, sehingga memadai untuk tujuan rekomendasi.
 
-## Kesimpulan
+### Kesimpulan
 Dari hasil evaluasi, solusi sistem rekomendasi dengan pendekatan Content-Based Filtering dengan model Cosine Similarity dan Collaborative Filtering menggunakan model RecommenderNet menunjukkan bahwa kedua pendekatan ini berhasil mencapai tujuan proyek. Content-Based Filtering dengan model Cosine Similiarity memberikan rekomendasi film yang relevan berdasarkan kesamaan genre dengan presisi tinggi, mencapai rekomendasi Top-10 yang sesuai kategori. Sementara itu, pendekatan Collaborative Filtering dengan model RecommenderNet menghasilkan rekomendasi film berdasarkan pola rating pengguna dengan error yang rendah (RMSE sekitar 0.105 untuk data training dan 0.270 untuk data validasi), menunjukkan kemampuannya dalam memprediksi preferensi pengguna dengan akurat. Secara keseluruhan, kedua pendekatan ini berhasil memberikan rekomendasi yang relevan dan sesuai dengan tujuan utama, yaitu menyediakan rekomendasi film yang sesuai dengan preferensi genre dan pola rating pengguna.
+
+### Evaluasi Terhadap Business Understanding
+
+- Menjawab Problem Statement: Model yang dibuat berhasil menjawab problem statement dengan memberikan rekomendasi film berdasarkan genre.  Pendekatan content-based filtering menggunakan nama/judul film untuk memberikan rekomendasi yang relevan berdasarkan genre, sementara collaborative filtering memanfaatkan interaksi pengguna-item (rating) untuk menemukan pola preferensi pengguna.
+
+- Mencapai Goals: Model content-based filtering dengan cosine similarity dan collaborative filtering dengan RecommenderNet berhasil mencapai tujuan untuk memberikan rekomendasi film yang relevan. Content-based filtering menggunakan data deskriptif yaitu genre untuk membuat profil item, sehingga meningkatkan akurasi rekomendasi dengan memperhitungkan kesamaan genre. Di sisi lain, collaborative filtering memanfaatkan data rating dari pengguna untuk menemukan pola preferensi dan merekomendasikan film yang sesuai dengan kesukaan pengguna.
+
+- Dampak dari Solution Statement: Penggunaan beberapa pendekatan algoritma (content-based dan collaborative filtering) dan teknik evaluasi seperti RMSE memberikan dampak positif dengan meningkatkan relevansi dan akurasi rekomendasi. Content-based filtering memastikan bahwa genre yang diberikan dapat memberikan rekomendasi yang relevan dengan film dengan genre sama karena cenderung memiliki kesamaan bagi pengguna. Sementara itu, collaborative filtering memungkinkan sistem untuk memahami preferensi pengguna berdasarkan interaksi sebelumnya, memberikan rekomendasi yang dipersonalisasi. Solusi yang direncanakan memberikan hasil yang signifikan dalam mencapai tujuan proyek, memastikan bahwa rekomendasi yang diberikan sesuai dengan kebutuhan dan preferensi pengguna.

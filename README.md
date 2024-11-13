@@ -138,6 +138,8 @@ Tidak ada hubungan yang signifikan antara variabel-variabel ini dalam hal pola l
 
 - Menghapus kolom yang tidak perlu
 - Encoding Genres
+- Sampling
+- Encoding UserId
 - Train-Test-Split Data user rating
 
 ### Menghapus kolom yang tidak perlu
@@ -157,6 +159,22 @@ Genre film sering kali dalam bentuk teks atau string (misalnya, "Action", "Comed
 
 Alasan: Algoritma machine learning hanya bekerja dengan data numerik. Encoding genre memungkinkan kita menggunakan informasi kategori ini dalam bentuk numerik yang dapat dipahami model. Selain itu, One-Hot Encoding membantu menghindari kesalahan interpretasi jarak antar kategori yang bisa terjadi dengan Label Encoding (misalnya, jika genre diberi label sebagai 1, 2, atau 3, model mungkin menyalahartikan urutan ini sebagai urutan numerik).
 Contoh: Sebuah film dengan genre "Action" dan "Comedy" akan direpresentasikan dengan kolom "Action" dan "Comedy" bernilai 1, sementara kolom genre lain seperti "Drama" dan "Horror" bernilai 0.
+
+### Sampling
+Sampling adalah proses memilih sebagian kecil dari data keseluruhan untuk dianalisis atau diproses lebih lanjut. Dalam konteks machine learning atau analisis data, sampling bertujuan untuk mengurangi ukuran data sehingga lebih efisien dalam komputasi, namun tetap mewakili karakteristik populasi data.
+
+
+Alasan: Menggunakan seluruh dataset bisa jadi memakan waktu dan sumber daya yang besar. Sampling membantu dalam mempercepat proses pengembangan model dan pengujian, serta menghindari overfitting pada data besar. Selain itu, jika data sudah cukup besar dan representatif, penggunaan subset melalui sampling akan tetap menghasilkan hasil analisis yang akurat.
+
+### Encoding User ID
+**Langkah-langkah Encoding**
+
+- Menghapus Duplikasi userId: Pada baris pertama, proses ``user_ids = fix_rating['userId'].unique().tolist()`` menghasilkan daftar userId unik dari dataset fix_rating. Ini memastikan bahwa setiap userId hanya muncul sekali dalam list, mengurangi kerumitan data dan membuat daftar user lebih efisien untuk diolah.
+- Membuat Mapping user_to_user_encoded: Pada langkah kedua, dictionary comprehension ``{x: i for i, x in enumerate(user_ids)}`` menciptakan mapping antara userId asli dengan nilai integer yang unik (i). Hal ini dilakukan agar setiap userId memiliki representasi numerik yang unik dan konsisten.
+- Membalikkan Mapping ``user_encoded_to_user: Proses {i: x for i, x in enumerate(user_ids)}`` membalikkan mapping tersebut, memungkinkan kita untuk mengonversi kembali integer encoding ke userId asli.
+
+  
+Alasan: Encoding userId ke dalam bentuk integer bertujuan untuk membuat data siap diolah oleh model machine learning, terutama yang hanya menerima data numerik sebagai input (misalnya, pada model embedding dalam rekomendasi atau klasifikasi). Encoding juga membantu dalam menyederhanakan data sehingga pemrosesan dapat dilakukan lebih cepat dan efisien.
 
 ### Train-Test-Split Data ID User Rating
 

@@ -231,10 +231,20 @@ Cosine similarity adalah metode pengukuran kesamaan antara dua vektor dalam ruan
 
 $$cosine(A,B) = \frac{A.B}{|A||B|}$$
 
-###Parameter yang digunakan
-- title : judul yang ingin diketahui kesamaannya
-- k = jumlah k teratas yang memiliki kesamaan
-![{2534709A-7324-44B5-AC85-A9DF9D0CEDF7}](https://github.com/user-attachments/assets/d1f88ec3-3330-4217-86ba-f22040fd68e3)
+### Parameter yang digunakan
+1. ``corr_matrix = cosine_similarity(gen_matrix):``
+- cosine_similarity: Fungsi ini menghitung kesamaan kosinus antar-vektor.
+- gen_matrix: Matriks input yang berisi representasi data dari item atau dokumen, misalnya film dalam konteks sistem rekomendasi film. Matriks ini biasanya berupa fitur atau representasi yang mengodekan atribut atau preferensi dari setiap item.
+- Hasil: ``cosine_similarity(gen_matrix)`` menghasilkan matriks korelasi antar-item, di mana setiap elemen di ``corr_matrix[i][j]`` menunjukkan seberapa mirip item ke-i dengan item ke-j berdasarkan kesamaan kosinus.
+
+2. ``similar_items = top_k_items(item_id=mov2ind[1], k=10, corr_mat=corr_matrix, map_name=ind2mov):``
+- ``item_id=mov2ind[1]``: mov2ind adalah peta atau dictionary yang mengubah ID item (dalam hal ini mungkin film) ke indeks dalam matriks. mov2ind[1] mengambil indeks dari film dengan ID 1.
+- ``k=10``: Jumlah item mirip teratas yang akan diambil. Dalam hal ini, k=10 berarti kita mencari 10 item paling mirip.
+- ``corr_mat=corr_matrix``: Matriks korelasi atau kemiripan yang dihasilkan sebelumnya (corr_matrix). Matriks ini menjadi input untuk mencari item yang mirip dengan item tertentu.
+- ``map_name=ind2mov``: ind2mov adalah peta untuk mengubah indeks ke nama item atau ID asli. Jadi, setelah menemukan indeks item yang mirip, kita bisa mengonversinya kembali ke nama atau ID asli untuk memberikan hasil rekomendasi dalam format yang lebih bermakna.
+
+![{A31ED2F5-CE07-487B-A7C3-1CAE610B0A6E}](https://github.com/user-attachments/assets/af3f4274-fb20-46a1-935b-0eba209b0558)
+
  
 **Kelebihan:**
 - Sederhana dan Efisien: Mudah dihitung dan sangat efisien secara komputasi, terutama untuk vektor berdimensi tinggi yang tipikal dalam data teks dan rekomendasi.
